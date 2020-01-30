@@ -1,0 +1,24 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Router } from "react-router-dom";
+import { Provider } from 'react-redux';
+import { store } from "../src/store/Store.jsx";
+import history from "../src/store/History.jsx";
+
+import '../src/assets/base.css';
+
+import App from "../src/App.jsx";
+
+/*if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('./serviceWorker.js');
+}*/
+
+ReactDOM.render((
+    <Provider store={store}>
+        <Router basename={process.env.PUBLIC_URL} history={history}>
+            <div>
+                <App />
+            </div>
+        </Router>
+    </Provider>
+), document.getElementById('root'));
